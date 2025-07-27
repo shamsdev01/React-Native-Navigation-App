@@ -1,24 +1,35 @@
 import { StyleSheet,FlatList } from "react-native";
 import {CATEGORIES} from '../data/dummy-data';
 import CategoryGridTile from "../components/CategoryGridTile";
-import SafeView from "../components/ui/SafeView";
+
+
+function CategoriesScreen ({navigation}) {
+
 
 function renderCategoryItem(itemData){
+    function pressHandler(){
+        // console.log('Pressed!');
+        navigation.navigate('MealsOverview',{
+            categoryId: itemData.item.id,
+        })
+    }
+
     return (
-        <CategoryGridTile title={itemData.item.title} color={itemData.item.color} />
+        <CategoryGridTile title={itemData.item.title} color={itemData.item.color} onPress={pressHandler} />
     )
 }
 
-function CategoriesScreen () {
+
+    
     return( 
-        <SafeView>
+
             <FlatList
                 data= {CATEGORIES}
                 keyExtractor={(item) => item.id}
                 renderItem={renderCategoryItem}
                 numColumns={2}
             />
-        </SafeView>
+    
     )
 }
 
