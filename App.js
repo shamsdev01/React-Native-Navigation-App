@@ -12,10 +12,23 @@ export default function App() {
     <>
     <StatusBar style='dark'/>
     <NavigationContainer>
-      <Stack.Navigator >
-        <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
-        <Stack.Screen name="MealsOverview" component={MealsOverviewScreen}/>
-      </Stack.Navigator>
+      <Stack.Navigator screenOptions={{
+            headerStyle: { backgroundColor: '#351401' },
+             headerTintColor: 'white',
+             contentStyle: { backgroundColor: '#3f2f25' }
+      }}>
+        <Stack.Screen name="MealsCategories" component={CategoriesScreen} 
+        options={{
+           title: 'All Categories',
+         }} />
+        <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} 
+        // options={({route,navigation}) =>{
+        //   const catId = route.params.categoryId;
+        //   return{
+        //       title: catId,
+        //   };}}
+          />
+      </Stack.Navigator> 
     </NavigationContainer>
    </>
   );
@@ -24,5 +37,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
    
-  },
+  }, 
 });

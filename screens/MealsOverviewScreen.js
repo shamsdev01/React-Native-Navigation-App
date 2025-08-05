@@ -16,6 +16,10 @@ function MealsOverviewScreen({route}){
     return (
      <MealItem
        title={itemData.item.title}
+        duration={itemData.item.duration}
+        image={itemData.item.imageUrl}
+         complexity={itemData.item.complexity}
+         affordability={itemData.item.affordability}
 
      />
     )
