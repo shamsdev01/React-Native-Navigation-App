@@ -8,6 +8,7 @@ import CategoriesScreen from './screens/CategoriesScreen';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
 import MealDetailsScreen from './MealDetailsScreen';
 import FavouritesScreen from './screens/FavouritesScreen'
+import FavouriteContextProvider from './store/contex/favourites-context';
 
 const Stack = createNativeStackNavigator(); 
 const Drawer = createDrawerNavigator();
@@ -43,6 +44,7 @@ export default function App() {
   return (
     <>
     <StatusBar style='light'/> 
+    <FavouriteContextProvider>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
             headerStyle: { backgroundColor: '#351401' },
@@ -66,6 +68,7 @@ export default function App() {
           />
       </Stack.Navigator> 
     </NavigationContainer>
+    </FavouriteContextProvider>
    </>
   );
 }
