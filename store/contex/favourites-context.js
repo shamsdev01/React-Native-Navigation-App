@@ -8,14 +8,14 @@ export const FavouriteContext = createContext({
 });
 
 function FavouriteContextProvider ( {children}){
-   const [favouriteMealIds, setFavouritgeMealIds] = useState([]);
+   const [favouriteMealIds, setFavouriteMealIds] = useState([]);
 
    function addFavourite( id ){
-        setFavouritgeMealIds((currentFavIds) => [...currentFavIds, id]); 
+        setFavouriteMealIds((currentFavIds) => [...currentFavIds, id]); 
    }
 
    function removeFavourite(id){
-    setFavouritgeMealIds((currentFavIds) => currentFavIds.filter(mealId !== id)
+    setFavouriteMealIds((currentFavIds) => currentFavIds.filter(mealId => mealId !== id)
 );
    }
 
